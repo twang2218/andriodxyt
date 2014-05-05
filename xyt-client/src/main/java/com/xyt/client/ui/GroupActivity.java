@@ -1,10 +1,9 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.ui;
 
 import android.os.Bundle;
 import android.app.Activity;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,7 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.xiaoyuantong.FriendsActivity.ContactsInfoAdapter;
+import com.example.xiaoyuantong.R;
 
 import android.util.Log;
 import android.view.Menu;
@@ -26,12 +25,11 @@ import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnCreateContextMenuListener;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class MessageActivity extends Activity {
+public class GroupActivity extends Activity {
 	
 	private RequestQueue requestQueue; // 定义请求队列
 	ListView list;
@@ -41,7 +39,7 @@ public class MessageActivity extends Activity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message);
+        setContentView(R.layout.activity_group);
         //动态请求
         requestQueue = Volley.newRequestQueue(this); // 获取请求
 		getJson();// 向后台发送请求，获取数据
@@ -65,7 +63,7 @@ public class MessageActivity extends Activity {
      
       
         listItemAdapter = new SimpleAdapter(this,listItem,//数据源
-            R.layout.message,//ListItem的XML实现
+            R.layout.group,//ListItem的XML实现
             //动态数组与ImageItem对应的子项        
             new String[] {"ItemImage","ItemTitle", "ItemText"}, 
             //ImageItem的XML文件里面的一个ImageView,两个TextView ID
@@ -109,7 +107,7 @@ public class MessageActivity extends Activity {
 	
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.message, menu);
+		getMenuInflater().inflate(R.menu.group, menu);
 		return true;
 	}
 	

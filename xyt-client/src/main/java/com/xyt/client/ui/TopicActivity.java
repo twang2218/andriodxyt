@@ -1,10 +1,9 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.ui;
 
 import android.os.Bundle;
 import android.app.Activity;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,7 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.xiaoyuantong.FriendsActivity.ContactsInfoAdapter;
+import com.example.xiaoyuantong.R;
 
 import android.util.Log;
 import android.view.Menu;
@@ -26,14 +25,13 @@ import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnCreateContextMenuListener;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;
 /*
- * 所有的的失物招领信息
+ * 话题消息
  */
-public class AllLandFActivity extends Activity {
+public class TopicActivity extends Activity {
 	
 	private RequestQueue requestQueue; // 定义请求队列
 	ListView list;
@@ -43,7 +41,7 @@ public class AllLandFActivity extends Activity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_land_f);
+        setContentView(R.layout.activity_topic);
         //动态请求
         requestQueue = Volley.newRequestQueue(this); // 获取请求
 		getJson();// 向后台发送请求，获取数据
@@ -67,7 +65,7 @@ public class AllLandFActivity extends Activity {
      
       
         listItemAdapter = new SimpleAdapter(this,listItem,//数据源
-            R.layout.alllandf,//ListItem的XML实现
+            R.layout.topic,//ListItem的XML实现
             //动态数组与ImageItem对应的子项        
             new String[] {"ItemImage","ItemTitle", "ItemText"}, 
             //ImageItem的XML文件里面的一个ImageView,两个TextView ID
@@ -111,14 +109,14 @@ public class AllLandFActivity extends Activity {
 	
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.all_land, menu);
+		getMenuInflater().inflate(R.menu.topic, menu);
 		return true;
 	}
 	
 	private void getJson() {
 		// ��ʼ��volley
 
-		String url = "http://192.168.20.1:8080/xiaoyuantong/findandlostAction!getFindAndLostAll.action";
+		String url = "http://192.168.20.1:8080/xiaoyuantong/dynamicAction!messageList.action";
 
 		// ������ʹ��volley
 		
@@ -133,12 +131,12 @@ public class AllLandFActivity extends Activity {
 							// ���?�ص�JSON���
 							Log.e("bbb", response.toString());
 							JSONArray json = null;
-							json = response.getJSONArray("findandlost");
+							json = response.getJSONArray("dynamic");
 						//	Log.e("date", json.toString());
 							//String groupId = "";
-							String category = "";
-							String content = "";
-							String name = "";
+							String massage = "";
+							String createtime = "";
+							String topicname = "";
 							list = (ListView) findViewById(R.id.ListView01);
 							listItem.clear();
 							
@@ -147,17 +145,15 @@ public class AllLandFActivity extends Activity {
 								//获取一列一列的对象
 								HashMap<String, Object> map = new HashMap<String, Object>();
 								JSONObject object = json.getJSONObject(j);
-								category = object.opt("category").toString();
-								content = object.opt("content").toString();
-								name = object.opt("name").toString();
-								Log.e("category", category);
-								Log.e("massage",content);
+								createtime = object.opt("createtime").toString();
+								massage = object.opt("massage").toString();
+								topicname = object.opt("topicname").toString();
+								Log.e("createtime", createtime);
+								Log.e("massage", massage);
 							// 
-							//	if (!category.equals("")&&content.equals("")&&name.equals("")){
 							     map.put("ItemImage", R.drawable.friends);//图像资源的ID
-							     map.put("ItemTitle", category+":"+name);
-							     map.put("ItemText", content);
-						//		}
+							     map.put("ItemTitle","#"+topicname+"#:"+createtime);
+							     map.put("ItemText", massage);
 							     listItem.add(map);
 								 listItemAdapter.notifyDataSetChanged();
 							//	 listItemAdapter.notifyDataSetInvalidated();

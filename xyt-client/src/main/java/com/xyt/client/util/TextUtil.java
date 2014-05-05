@@ -1,4 +1,4 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;

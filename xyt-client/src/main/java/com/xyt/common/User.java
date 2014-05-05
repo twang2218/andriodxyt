@@ -1,4 +1,4 @@
-package com.xyt.pagemodel;
+package com.xyt.common;
 
 public class User {
 	

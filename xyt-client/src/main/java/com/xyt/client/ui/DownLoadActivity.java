@@ -1,9 +1,11 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.ui;
 
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+
+import com.example.xiaoyuantong.R;
 
 public class DownLoadActivity extends Activity {
 

@@ -1,12 +1,9 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.ui;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,7 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.xiaoyuantong.FriendsActivity.ContactsInfoAdapter;
+import com.example.xiaoyuantong.R;
 
 import android.util.Log;
 import android.view.Menu;
@@ -26,45 +23,29 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.View.OnClickListener;
 import android.view.View.OnCreateContextMenuListener;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.ImageButton;
 import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;
-
 /*
- * 动态
+ * 所有的的失物招领信息
  */
-public class NewsActivity extends Activity {
-	private Intent writeNewsIntent;
+public class AllLandFActivity extends Activity {
+	
 	private RequestQueue requestQueue; // 定义请求队列
 	ListView list;
 	ArrayList<HashMap<String, Object>> listItem;
 	SimpleAdapter listItemAdapter;
 	
-	ImageButton writeBtn;
-	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news);
-        this.writeNewsIntent = new Intent(this,WriteNewsActivity.class);
+        setContentView(R.layout.activity_all_land_f);
         //动态请求
         requestQueue = Volley.newRequestQueue(this); // 获取请求
 		getJson();// 向后台发送请求，获取数据
 		
-
-        writeBtn = (ImageButton) findViewById(R.id.writeBtn);
-
-        writeBtn.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				startActivity(writeNewsIntent);
-			}			
-		});
         //绑定Layout里面的ListView
         list = (ListView) findViewById(R.id.ListView01);
         
@@ -84,7 +65,7 @@ public class NewsActivity extends Activity {
      
       
         listItemAdapter = new SimpleAdapter(this,listItem,//数据源
-            R.layout.news,//ListItem的XML实现
+            R.layout.alllandf,//ListItem的XML实现
             //动态数组与ImageItem对应的子项        
             new String[] {"ItemImage","ItemTitle", "ItemText"}, 
             //ImageItem的XML文件里面的一个ImageView,两个TextView ID
@@ -128,14 +109,14 @@ public class NewsActivity extends Activity {
 	
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.news, menu);
+		getMenuInflater().inflate(R.menu.all_land, menu);
 		return true;
 	}
 	
 	private void getJson() {
 		// ��ʼ��volley
 
-		String url = "http://192.168.20.1:8080/xiaoyuantong/dynamicAction!dynamicList.action";
+		String url = "http://192.168.20.1:8080/xiaoyuantong/findandlostAction!getFindAndLostAll.action";
 
 		// ������ʹ��volley
 		
@@ -150,12 +131,12 @@ public class NewsActivity extends Activity {
 							// ���?�ص�JSON���
 							Log.e("bbb", response.toString());
 							JSONArray json = null;
-							json = response.getJSONArray("dynamic");
+							json = response.getJSONArray("findandlost");
 						//	Log.e("date", json.toString());
 							//String groupId = "";
-							String massage = "";
-							String createtime = "";
-							String username = "";
+							String category = "";
+							String content = "";
+							String name = "";
 							list = (ListView) findViewById(R.id.ListView01);
 							listItem.clear();
 							
@@ -164,15 +145,17 @@ public class NewsActivity extends Activity {
 								//获取一列一列的对象
 								HashMap<String, Object> map = new HashMap<String, Object>();
 								JSONObject object = json.getJSONObject(j);
-								createtime = object.opt("createtime").toString();
-								massage = object.opt("massage").toString();
-								username = object.opt("username").toString();
-								Log.e("createtime", createtime);
-								Log.e("massage", massage);
+								category = object.opt("category").toString();
+								content = object.opt("content").toString();
+								name = object.opt("name").toString();
+								Log.e("category", category);
+								Log.e("massage",content);
 							// 
+							//	if (!category.equals("")&&content.equals("")&&name.equals("")){
 							     map.put("ItemImage", R.drawable.friends);//图像资源的ID
-							     map.put("ItemTitle", username+":"+createtime);
-							     map.put("ItemText", massage);
+							     map.put("ItemTitle", category+":"+name);
+							     map.put("ItemText", content);
+						//		}
 							     listItem.add(map);
 								 listItemAdapter.notifyDataSetChanged();
 							//	 listItemAdapter.notifyDataSetInvalidated();

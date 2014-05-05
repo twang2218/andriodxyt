@@ -1,23 +1,17 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.ui;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.xiaoyuantong.R;
+import com.xyt.client.backend.LoginDao;
+import com.xyt.client.backend.LoginService;
+import com.xyt.client.backend.LoginServiceImpl;
+import com.xyt.client.util.PublicWay;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,11 +26,9 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ListView;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -90,7 +82,7 @@ public class LoginActivity extends Activity
     		{ 
     			// 设置自动登录被点击 然后实现跳转 
     			autoLogin.setChecked(true); 
-    			Intent intent1 = new Intent(LoginActivity.this, PersonalInfoActivity.class); 
+    			Intent intent1 = new Intent(LoginActivity.this, PersonalInfoActivity.class);
     			startActivity(intent1); 
     		} 
     	} 
@@ -254,7 +246,7 @@ public class LoginActivity extends Activity
 	    	Log.e("login","runnable");
 			if (loginServicedb.login(map)){
 				//如果返回true，则进入主界面
-				intent1.setClass(LoginActivity.this, MainActivity.class);	
+				intent1.setClass(LoginActivity.this, MainActivity.class);
 		
 			}else{
 				//否则进入注册界面

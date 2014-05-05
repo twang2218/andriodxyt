@@ -1,14 +1,15 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.ui;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.content.Intent;
 import android.view.Window;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import com.example.xiaoyuantong.R;
 
 public class MainActivity extends Activity{
 	private Intent FriendsIntent;

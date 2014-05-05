@@ -1,4 +1,4 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.ui;
 
 import android.app.TabActivity;
 import android.content.Intent;
@@ -8,8 +8,9 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TabHost;
-import android.app.Activity;
 import android.view.Menu;
+
+import com.example.xiaoyuantong.R;
 
 public class UpDownTabActivity extends TabActivity implements OnCheckedChangeListener{
 	

@@ -10,12 +10,12 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.xiaoyuantong.MainActivity"
+            android:name="com.xyt.client.ui.MainActivity"
             android:label="@string/app_name" >
           
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.LoginActivity"
+            android:name="com.xyt.client.ui.LoginActivity"
             android:label="@string/title_activity_login" >
                <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,70 +24,70 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.PersonalInfoActivity"
+            android:name="com.xyt.client.ui.PersonalInfoActivity"
             android:label="@string/title_activity_personal_info" >
              
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.MainTabActivity"
+            android:name="com.xyt.client.ui.MainTabActivity"
             android:label="@string/title_activity_main_tab" >
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.FriendsActivity"
+            android:name="com.xyt.client.ui.FriendsActivity"
             android:label="@string/title_activity_friends" >
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.NewsActivity"
+            android:name="com.xyt.client.ui.NewsActivity"
             android:label="@string/title_activity_news" >
           
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.TopicActivity"
+            android:name="com.xyt.client.ui.TopicActivity"
             android:label="@string/title_activity_topic" >
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.GroupActivity"
+            android:name="com.xyt.client.ui.GroupActivity"
             android:label="@string/title_activity_group" >
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.SearchActivity"
+            android:name="com.xyt.client.ui.SearchActivity"
             android:label="@string/title_activity_search" >
         </activity>
       
         <activity
-            android:name="com.example.xiaoyuantong.UploadActivity"
+            android:name="com.xyt.client.ui.UploadActivity"
             android:label="@string/title_activity_upload" >
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.DownLoadActivity"
+            android:name="com.xyt.client.ui.DownLoadActivity"
             android:label="@string/title_activity_down_load" >
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.MessageActivity"
+            android:name="com.xyt.client.ui.MessageActivity"
             android:label="@string/title_activity_message" >
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.UpDownTabActivity"
+            android:name="com.xyt.client.ui.UpDownTabActivity"
             android:label="@string/title_activity_up_down_tab" >
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.LostAndFoundTabActivity"
+            android:name="com.xyt.client.ui.LostAndFoundTabActivity"
             android:label="@string/title_activity_lost_and_found_tab" >
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.MyLAndFActivity"
+            android:name="com.xyt.client.ui.MyLAndFActivity"
             android:label="@string/title_activity_my_land_f" >
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.AllLandFActivity"
+            android:name="com.xyt.client.ui.AllLandFActivity"
             android:label="@string/title_activity_all_land_f" >
         </activity>
         <activity
-            android:name="com.example.xiaoyuantong.WriteLAndFActivity"
+            android:name="com.xyt.client.ui.WriteLAndFActivity"
             android:label="@string/title_activity_write_land_f" >
         </activity>
          <activity
-            android:name="com.example.xiaoyuantong.WriteNewsActivity"
+            android:name="com.xyt.client.ui.WriteNewsActivity"
             android:label="@string/title_activity_write_news" >
         </activity>
     </application>

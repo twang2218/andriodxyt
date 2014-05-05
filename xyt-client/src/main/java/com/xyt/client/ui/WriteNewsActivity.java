@@ -1,11 +1,8 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.ui;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.UUID;
-
-import org.json.JSONArray;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,11 +16,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +27,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
+
+import com.example.xiaoyuantong.R;
+import com.xyt.client.util.ActivityForResultUtil;
 
 public class WriteNewsActivity extends Activity {
 

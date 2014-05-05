@@ -1,4 +1,4 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.ui;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,7 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.xiaoyuantong.FriendsActivity.ContactsInfoAdapter;
+import com.example.xiaoyuantong.R;
 
 import android.util.Log;
 import android.view.Menu;
@@ -28,7 +27,6 @@ import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnCreateContextMenuListener;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;

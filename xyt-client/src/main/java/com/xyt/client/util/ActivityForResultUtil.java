@@ -1,4 +1,4 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.util;
 
 public class ActivityForResultUtil {
 	public static final int REQUESTCODE_CHANGEWALLPAGER = 0;

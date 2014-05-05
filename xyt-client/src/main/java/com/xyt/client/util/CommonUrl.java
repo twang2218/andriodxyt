@@ -1,4 +1,4 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.util;
 
 public class CommonUrl {
 	public static String STUID;

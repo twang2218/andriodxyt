@@ -1,4 +1,4 @@
-package com.example.xiaoyuantong;
+package com.xyt.client.ui;
 
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -25,6 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.xiaoyuantong.R;
 
 public class PersonalInfoActivity extends Activity {
 	private Intent intent;
